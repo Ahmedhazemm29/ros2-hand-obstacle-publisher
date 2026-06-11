@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>hand_obstacle_publisher</name>
+  <version>1.0.0</version>
+  <description>
+    Turns real-time human hand (or full-body) detections into live MoveIt2
+    collision objects. Subscribes to pixel-space detections, builds a 3D
+    obstacle (depth camera + TF, or a fixed-depth webcam fallback) and
+    publishes atomic planning-scene diffs so the robot replans around the
+    human in real time.
+  </description>
+  <maintainer email="a214.shams@gmail.com">Ahmed Hazem</maintainer>
+  <license>MIT</license>
+
+  <url type="repository">https://github.com/Ahmedhazemm29/ros2-hand-obstacle-publisher</url>
+
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>shape_msgs</depend>
+  <depend>moveit_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2_geometry_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>python3-numpy</depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
