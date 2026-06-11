@@ -28,7 +28,12 @@ physical UR5e ([full project & demo videos](https://github.com/Ahmedhazemm29/Hum
 | **Stale handling** | Detection lost → obstacle removed after a timeout (no ghost obstacles freezing your robot) |
 | **Atomic updates** | Adds and removals ship in a single planning-scene diff, so the scene never contains stale duplicates |
 
-### Bonus: full-body mode
+### Experimental: full-body mode (under testing)
+
+> ⚠️ **Status: under testing.** The logic is covered by the offline unit
+> tests below and validated against recorded footage, but end-to-end
+> robot/MoveIt2 validation is still in progress. The default hand mode is
+> the production-tested path.
 
 With `tracking_mode:=body`, the node consumes 33 MediaPipe-Pose-style
 landmarks on `/body_landmarks` (`geometry_msgs/PoseArray`, pixel coords,
@@ -110,6 +115,12 @@ colcon test --packages-select hand_obstacle_publisher
 Covered: pixel→world mapping bounds, depth-percentile box construction
 inputs, quaternion alignment for body capsules, hidden-limb gating,
 atomic add/remove diffs, stale-removal bookkeeping.
+
+## Roadmap
+
+- [ ] Finish hardware/sim validation of the full-body mode (currently under testing)
+- [ ] Convert configuration constants (frames, intrinsics, workspace bounds) to ROS parameters
+- [ ] Example launch files + RViz config
 
 ## Requirements
 
